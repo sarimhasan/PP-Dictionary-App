@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+// importing components
+import Navbar from "./components/Navbar";
+import Definitions from "./components/Definitions";
+import Synonyms from "./components/Synonyms";
+
+// importing context and useState
+import { useState } from "react";
+import { DictionaryContext } from "./context/context";
 
 function App() {
-  const [word, setWord] = useState("");
-
-  const url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
-
+  const [data, setData] = useState([]);
+  // -------------- DELETE: Previous code that did not worked  -------------------------
   // const [error, loading] = customReactQuery(url, word);
 
   // if (error) {
@@ -32,22 +36,14 @@ function App() {
   //     console.error("Error fetching data:", error);
   //   }
   // }
+  // -----------------------------------------------------------------------
 
   // handle submit function to call the API using form
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    try {
-      const response = await axios.get(url + word);
-      console.log(response.data);
-    } catch (error) {
-      console.log("Error fetching data:", error);
-    }
-  }
-
   return (
-    <>
-      {/* <input
+    <DictionaryContext.Provider value={[setData, data]}>
+      <>
+        {/* ---------- DELETE: Previous code that did not worked ------- */}
+        {/* <input
         className="border-2 border-black"
         type="text"
         placeholder="Search any word"
@@ -57,23 +53,23 @@ function App() {
       <button onSubmit={handleSubmit} type="submit">
         Search
       </button> */}
+        {/* ------------------------------------------------------- */}
 
-      {/* NOW USING FORM */}
+        {/* NOW USING FORM IN THE NAVBAR COMPONENT*/}
+        <Navbar />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          className="border-2 border-black"
-          type="text"
-          value={word}
-          onChange={(e) => setWord(e.target.value)}
-          placeholder="Enter a word"
-        />
-        <button type="submit">Search</button>
-      </form>
+        {/* DEFINTIONS COMPONENT */}
+        <Definitions />
 
-      {/* {error && <h1>Something Went Wrong!</h1>}
+        {/* SYNONYMS COMPONENT */}
+        <Synonyms />
+
+        {/* 0.meanings[1].synonyms */}
+
+        {/* ---------- DELETE: Previous code that did not worked ------- */}
+        {/* {error && <h1>Something Went Wrong!</h1>}
       {loading && <h1>Loading...</h1>} */}
-      {/* <div className="logo">
+        {/* <div className="logo">
         <h1>WORD</h1>
       </div>
       <header>
@@ -85,18 +81,21 @@ function App() {
         <h1>transpire</h1>
 
         <p>
-          To give off (vapour, waste matter etc.); to exhale (an odour etc.). To
-          perspire. Of plants, to give off water and waste products through the
-          stomata. To become known; to escape from secrecy. To happen, take
-          place.
+        To give off (vapour, waste matter etc.); to exhale (an odour etc.). To
+        perspire. Of plants, to give off water and waste products through the
+        stomata. To become known; to escape from secrecy. To happen, take
+        place.
         </p>
       </div> */}
-    </>
+        {/* ---------------------------------------------------------------- */}
+      </>
+    </DictionaryContext.Provider>
   );
 }
 
 export default App;
 
+// -------------- DELETE: Previous code that did not worked  -------------------------
 // const customReactQuery = (url, word) => {
 //   const [error, setError] = useState(false);
 //   const [loading, setLoading] = useState(false);
@@ -131,3 +130,4 @@ export default App;
 
 //   return [error, loading];
 // };
+// -----------------------------------------------------------------------
