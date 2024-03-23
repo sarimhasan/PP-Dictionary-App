@@ -1,6 +1,6 @@
 # Dictionary Project
 
-[![JhGPR5P.md.png](https://iili.io/JhGPR5P.md.png)](https://freeimage.host/i/JhGPR5P)
+[![JhGmb3u.md.png](https://iili.io/JhGmb3u.md.png)](https://freeimage.host/i/JhGmb3u)
 
 **You can visit the live website here: https://sarims-dict.netlify.app/**
 
