@@ -22,16 +22,26 @@ function Navbar() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="border-2 border-black"
-        type="text"
-        value={word}
-        onChange={(e) => setWord(e.target.value)}
-        placeholder="Enter a word"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <>
+      <div className="logo font-bold text-[25px] mt-4 mb-1 flex justify-center md:mt-0">
+        WORD
+      </div>
+      <form onSubmit={handleSubmit} className="flex justify-center mx-2">
+        <input
+          className="rounded-full bg-dark-pink text-background placeholder-background mr-[2px] px-2 w-[20rem] md:w-[30rem] lg:w-[35rem]"
+          type="text"
+          value={word}
+          onChange={(e) => setWord(e.target.value)}
+          placeholder="Search any word..."
+        />
+        <button
+          type="submit"
+          className=" rounded-full bg-dark-pink py-[7px] px-6 ml-[2px]"
+        >
+          Search
+        </button>
+      </form>
+    </>
   );
 }
 

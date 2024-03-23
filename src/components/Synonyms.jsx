@@ -8,10 +8,18 @@ function Synonyms() {
     <>
       {data.map((item) =>
         item.meanings.map((synonym, index) => (
-          <div className="my-2" key={index}>
+          <div
+            className="bg-light-pink rounded-[45px] p-4 my-5 mx-2"
+            key={index}
+          >
+            <h1 className="flex justify-center text-[28px] font-bold mb-1">
+              Synonyms
+            </h1>
             <ul>
               {synonym.synonyms.map((syn, idx) => (
-                <li key={idx}>- {syn}</li>
+                <li key={idx} className="flex justify-center text-text">
+                  {syn}
+                </li>
               ))}
             </ul>
           </div>

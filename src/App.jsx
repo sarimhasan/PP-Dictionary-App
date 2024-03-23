@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar";
 import Definitions from "./components/Definitions";
 import Synonyms from "./components/Synonyms";
+import Footer from "./components/Footer";
 
 // importing context and useState
 import { useState } from "react";
@@ -41,7 +42,7 @@ function App() {
   // handle submit function to call the API using form
   return (
     <DictionaryContext.Provider value={[setData, data]}>
-      <>
+      <div className="max-w-screen-lg">
         {/* ---------- DELETE: Previous code that did not worked ------- */}
         {/* <input
         className="border-2 border-black"
@@ -58,11 +59,16 @@ function App() {
         {/* NOW USING FORM IN THE NAVBAR COMPONENT*/}
         <Navbar />
 
-        {/* DEFINTIONS COMPONENT */}
-        <Definitions />
+        <div className="dictionary md:flex">
+          {/* DEFINTIONS COMPONENT */}
+          <Definitions />
 
-        {/* SYNONYMS COMPONENT */}
-        <Synonyms />
+          {/* SYNONYMS COMPONENT */}
+          <Synonyms />
+        </div>
+
+        {/* FOOTER COMPONENT */}
+        <Footer />
 
         {/* 0.meanings[1].synonyms */}
 
@@ -88,7 +94,7 @@ function App() {
         </p>
       </div> */}
         {/* ---------------------------------------------------------------- */}
-      </>
+      </div>
     </DictionaryContext.Provider>
   );
 }
